@@ -2,15 +2,29 @@ public class ExpressionTree{
   /*return the expression as an infix notation string with parenthesis*/
   /* The sample tree would be: "(3 + (2 * 10))"     */
   public String toString(){
-    /*you are to write this method*/
-    return "";
+    // if tree is a value, return value as a string
+    if (isValue()){
+      return ""+getValue();
+    }
+    else{
+    // otherwise, tree is an operator
+    // return left subtree, operator, and right subtree with spaces and parentheses
+      return "("+getLeft().toString() + " " + getOp() + " " + getRight().toString() +")";
+    }
   }
 
   /*return the expression as a postfix notation string without parenthesis*/
   /* The sample tree would be: "3 2 10 * +"     */
   public String toStringPostfix(){
-    /*you are to write this method*/
-    return "";
+    // if tree is a value, return value as a string
+    if (isValue()){
+      return ""+getValue();
+    }
+    else{
+    // otherwise, tree is an operator
+    // return left subtree, right subtree, and operator with spaces in between
+      return getLeft().toStringPostfix() +" "+getRight().toStringPostfix()+" "+getOp();
+    }
   }
 
   /*return the expression as a prefix notation string without parenthesis*/
